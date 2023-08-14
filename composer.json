@@ -1,0 +1,11 @@
+{
+    "autoload":{
+        "psr-4": {
+            "TrabajoSube\\" : "src"
+        }
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    }
+}
