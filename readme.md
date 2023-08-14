@@ -12,19 +12,19 @@ Cuando un usuario viaja en colectivo con una tarjeta, obtiene un boleto como res
 
 Para esta iteración se consideran los siguientes supuestos:
 
--No hay medio boleto de ningún tipo.
--No hay transbordos.
--No hay viajes plus.
--La tarifa básica de un pasaje es de: $120
--Las cargas aceptadas de tarjetas son: (150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 2000, 2500, 3000, 3500, 4000)
--El límite de saldo de una tarjeta es de $6600
+- No hay medio boleto de ningún tipo.
+- No hay transbordos.
+- No hay viajes plus.
+- La tarifa básica de un pasaje es de: $120
+- Las cargas aceptadas de tarjetas son: (150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 2000, 2500, 3000, 3500, 4000)
+- El límite de saldo de una tarjeta es de $6600
 
 Se pide:
 
--Hacer un fork del repositorio.
--Implementar el código de las clases Tarjeta, Colectivo y Boleto.
--Hacer que el test Boleto.php funcione correctamente con todos los montos de pago listados.
--Enviar el enlace del repositorio al mail del profesor con los integrantes del grupo: dos por grupo.
+- Hacer un fork del repositorio.
+- Implementar el código de las clases Tarjeta, Colectivo y Boleto.
+- Hacer que el test Boleto.php funcione correctamente con todos los montos de pago listados.
+- Enviar el enlace del repositorio al mail del profesor con los integrantes del grupo(Un mail por grupo).
 
 
 Para instalar el código inicial clonar el repositorio y luego ejecutar:
