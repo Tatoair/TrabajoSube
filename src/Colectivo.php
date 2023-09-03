@@ -1,18 +1,24 @@
-<?php
-namespace TrabajoSube;
-class Colectivo{
-  protected $linea;
-    
-  public function __construct($linea){
-    $this->linea = $linea;
-  }
+<?php 
 
-  public function getLinea(){
-    return $this->linea;
+namespace TrabajoSube;
+
+use PHPUnit\Framework\TestCase;
+
+class ColectivoTest extends TestCase{  
+  public function testGetlinea(){
+    $cole = new Colectivo(103);
+    $this->assertEquals($cole->getLinea(), 103);
   }
   
-  public function pagarCon($tarjeta){
-    $tarjeta->descontarSaldo();
-    return new Boleto();
+  public function testPagar(){
+    $tarjeta = new Tarjeta(380);
+    $colectivo = new Colectivo(103);
+    $colectivo->pagarCon($tarjeta);
+
+    $this->assertEquals(
+      $tarjeta->saldo,
+      260,
+      "actual value is not equals to expected"
+    );
   }
 }

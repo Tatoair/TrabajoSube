@@ -15,17 +15,17 @@ class TarjetaTest extends Testcase{
     $tarjeta1 = new Tarjeta(0);
     $this->assertTrue($tarjeta1->cargarSaldo(3500));
     $tarjeta1->cargarSaldo(3500);
-    $this->assertEqual($tarjeta1->saldo, 3500);
+    $this->assertEquals($tarjeta1->saldo, 3500);
 
     $tarjeta2 = new Tarjeta(5000);
     $this->assertFalse($tarjeta2->cargarSaldo(2000));
     $tarjeta2->cargarSaldo(2000);
-    $this->assertEqual($tarjeta2->saldo, 5000);
+    $this->assertEquals($tarjeta2->saldo, 5000);
 
     $tarjeta3 = new Tarjeta(0);
     $this->assertFalse($tarjeta3->cargarSaldo(245));
     $tarjeta3->cargarSaldo(245);
-    $this->assertEqual($tarjeta3->saldo, 0);
+    $this->assertEquals($tarjeta3->saldo, 0);
 
     /*
       $this->assertEquals(
