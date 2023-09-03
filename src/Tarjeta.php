@@ -17,7 +17,7 @@ class Tarjeta{
       $this->viajePlus--;
       echo "Le quedan " . $this->viajePlus . "viajes plus.";
     } else {
-      echo "Se ha quedado sin viajes plus."
+      echo "Se ha quedado sin viajes plus.";
     }
   }
   
