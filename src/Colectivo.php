@@ -12,7 +12,10 @@ class Colectivo{
   }
   
   public function pagarCon($tarjeta){
-    $tarjeta->descontarSaldo();
-    return new Boleto(120, $tarjeta->saldo);
+    $pase = $tarjeta->descontarSaldo();
+    if($pase){
+      new Boleto(120, $tarjeta->saldo);
+    }
+    return $pase;
   }
 }

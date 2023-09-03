@@ -18,4 +18,13 @@ class TarjetaTest extends Testcase{
     $this->assertFalse($tarjeta3->cargarSaldo(245));
     $this->assertEquals($tarjeta3->saldo, 0);
   }
+
+  public function testDescontar(){
+    $tarjeta = new Tarjeta(200);
+    $this->assertTrue($tarjeta->descontarSaldo());
+    $this->assertEquals($tarjeta->saldo, 80);
+    
+    $tarjeta1 = new Tarjeta();
+    $this->assertFalse($tarjeta1->descontarSaldo());
+  }
 }

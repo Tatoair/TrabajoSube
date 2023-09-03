@@ -8,7 +8,12 @@ class Tarjeta{
   }
   
   public function descontarSaldo(){
-    $this->saldo-=120;
+    if ($this->saldo < 120){
+      return false;
+    } else {
+      $this->saldo-=120;
+      return true;
+    }
   }
   
   public function cargarSaldo($carga){
@@ -21,9 +26,8 @@ class Tarjeta{
     } else if (in_array($carga, $cargaValida)){
       $this->saldo += $carga;
       return true;
-    }
-    else {
-      echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad dentro del rango de cargas";  
+    } else {
+      echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad dentro del rango de cargas";
       return false;
     }
   }
