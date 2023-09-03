@@ -22,7 +22,7 @@ class TarjetaTest extends Testcase{
     $this->assertEquals($tarjeta3->saldo, 0);
   }
 
-  public function testDescontar(){
+   public function testDescontar(){
     //Test de descontar simple
     $tarjeta = new Tarjeta(200);
     $tarjeta->descontarSaldo();
@@ -30,14 +30,14 @@ class TarjetaTest extends Testcase{
 
     //Test de viajes plus
     $tarjeta1 = new Tarjeta(50);
-    $tarjeta->descontarSaldo();
-    $tarjeta->descontarSaldo();
-    $this->assertEquals($tarjeta->viajePlus, 0);
+    $tarjeta1->descontarSaldo();
+    $tarjeta1->descontarSaldo();
+    $this->assertEquals($tarjeta1->viajePlus, 0);
 
     //Test de carga con viajes plus
     $tarjeta2 = new Tarjeta(-211.84);
-    $tarjeta->cargarSaldo(300);
-    $this->assertEquals($tarjeta->viajePlus, 2);
-    $this->assertEquals($tarjeta->saldo, 88.16);
+    $tarjeta2->cargarSaldo(300);
+    $this->assertEquals($tarjeta2->viajePlus, 2);
+    $this->assertEquals($tarjeta2->saldo, 88.16);
   }
 }
