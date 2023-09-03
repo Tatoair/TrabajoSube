@@ -13,6 +13,6 @@ class Colectivo{
   
   public function pagarCon($tarjeta){
     $tarjeta->descontarSaldo();
-    return new Boleto();
+    return new Boleto(120, $tarjeta->saldo);
   }
 }
