@@ -8,7 +8,6 @@ class Tarjeta{
   }
   
   public function descontarSaldo(){
-    //Descuenta el valor de Un pasaje al saldo de la tarjeta//
     $this->saldo-=120;
   }
   
@@ -18,12 +17,17 @@ class Tarjeta{
     //Verifica si la carga ingresada es valida y carga el monto//
     if($this->saldo + $carga > 6600){
       echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad menor";
+      //return 1;
+      return false;
     } else if (in_array($carga, $cargaValida)){
       $this->saldo += $carga;
+      //return 0;
+      return true;
     }
-    //Si la carga no es alguna de los acordados//
     else {
-      echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad dentro del rango de cargas";
+      echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad dentro del rango de cargas";  
+      //return 2;
+      return false;
     }
   }
 }

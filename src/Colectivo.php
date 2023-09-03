@@ -1,10 +1,18 @@
 <?php
 namespace TrabajoSube;
 class Colectivo{
+  protected $linea;
+    
+  public function __construct($linea){
+    $this->linea = $linea;
+  }
 
-    public function pagarCon($tarjeta){
-      $tarjeta->descontarSaldo();
-      $boleto = new Boleto();
-      return $boleto->generarBoleto($tarjeta);
-    }
+  public function getLinea(){
+    return $this->linea;
+  }
+  
+  public function pagarCon($tarjeta){
+    $tarjeta->descontarSaldo();
+    return new Boleto();
+  }
 }
