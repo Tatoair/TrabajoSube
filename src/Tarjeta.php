@@ -17,16 +17,13 @@ class Tarjeta{
     //Verifica si la carga ingresada es valida y carga el monto//
     if($this->saldo + $carga > 6600){
       echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad menor";
-      //return 1;
       return false;
     } else if (in_array($carga, $cargaValida)){
       $this->saldo += $carga;
-      //return 0;
       return true;
     }
     else {
       echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad dentro del rango de cargas";  
-      //return 2;
       return false;
     }
   }

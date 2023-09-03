@@ -15,10 +15,6 @@ class ColectivoTest extends TestCase{
     $colectivo = new Colectivo(103);
     $colectivo->pagarCon($tarjeta);
 
-    $this->assertEquals(
-      $tarjeta->saldo,
-      260,
-      "actual value is not equals to expected"
-    );
+    $this->assertEquals($tarjeta->saldo, 260);
   }
 }
