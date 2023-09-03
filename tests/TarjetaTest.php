@@ -37,7 +37,7 @@ class TarjetaTest extends Testcase{
     //Test de carga con viajes plus
     $tarjeta2 = new Tarjeta(-211.84);
     $tarjeta->cargarSaldo(300);
-    $this->assertEquals($tarjeta->viajesPlus, 2);
+    $this->assertEquals($tarjeta->viajePlus, 2);
     $this->assertEquals($tarjeta->saldo, 88.16);
   }
 }
