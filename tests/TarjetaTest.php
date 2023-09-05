@@ -22,7 +22,6 @@ class TarjetaTest extends Testcase{
     $this->assertEquals($tarjeta3->saldo, 0);
   }
 
-
   public function testDescontar(){
     //Test de descontar simple
     $tarjeta = new Tarjeta(200);
@@ -43,5 +42,23 @@ class TarjetaTest extends Testcase{
     $tarjeta2->cargarSaldo(300);
     $this->assertEquals($tarjeta2->viajePlus, 2);
     $this->assertEquals($tarjeta2->saldo, 88.16);
+  }
+}
+
+class MedioBTest extends Testcase{
+  public function testDescontar(){
+    //Test de descontar para medio boleto//
+    $tarjeta = new MedioBoleto(100);
+    $tarjeta->descontarSaldo();
+    $this->assertEquals($tarjeta->saldo, 40);
+  }
+}
+
+class FranqCompTest extends Testcase{
+  public function testDescontar(){
+    //Test de descontar para franquicia completa//
+    $tarjeta = new FranquiciaCompleta(100);
+    $tarjeta->descontarSaldo();
+    $this->assertEquals($tarjeta->saldo, 100);
   }
 }

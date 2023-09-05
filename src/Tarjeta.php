@@ -45,3 +45,16 @@ class Tarjeta{
   }
 }
 
+class MedioBoleto extends Tarjeta{
+  public function descontarSaldo(){
+    $this->saldo-=60;
+  }
+  
+}
+
+class FranquiciaCompleta extends Tarjeta{
+  public function descontarSaldo(){
+    $this->saldo-=0;
+  }
+}
+
