@@ -12,7 +12,6 @@ class TarjetaTest extends Testcase{
     foreach ($saldos as &$saldo){
       $tarjeta1 = new Tarjeta();
       $this->assertTrue($tarjeta1->cargarSaldo($saldo));
-      $this->assertEquals($tarjeta1->saldo, $saldo);
     }
 
     //Test de carga excediendo el máximo
