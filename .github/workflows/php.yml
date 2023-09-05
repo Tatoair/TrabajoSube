@@ -2,11 +2,7 @@ name: PHP Composer
 
 on:
   push:
-<<<<<<< HEAD
-    branches: [ "ViajesPlus" ]
-=======
-    branches: [ "Franquicia" ]
->>>>>>> Franquicia
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
