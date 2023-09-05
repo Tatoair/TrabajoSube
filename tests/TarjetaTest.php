@@ -6,10 +6,14 @@ use PHPUnit\Framework\TestCase;
 
 class TarjetaTest extends Testcase{
   public function testCargar(){
-    //Test de carga simple
-    $tarjeta1 = new Tarjeta();
-    $this->assertTrue($tarjeta1->cargarSaldo(3500));
-    $this->assertEquals($tarjeta1->saldo, 3500);
+    $saldos = [150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 2000, 2500, 3000, 3500, 4000];
+
+    //Test de carga en todos los rangos aceptados
+    foreach ($saldos as &$saldo){
+      $tarjeta1 = new Tarjeta();
+      $this->assertTrue($tarjeta1->cargarSaldo($saldo));
+      $this->assertEquals($tarjeta1->saldo, $saldo);
+    }
 
     //Test de carga excediendo el máximo
     $tarjeta2 = new Tarjeta(5000);
