@@ -4,7 +4,7 @@ namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
 
-class FranqCompTest extends Testcase{
+class FranquiciaCompletaTest extends Testcase{
     public function testDescontar(){
       $tarjeta = new FranquiciaCompleta(100);
       $tarjeta->descontarSaldo();

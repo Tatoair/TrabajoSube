@@ -4,7 +4,7 @@ namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
 
-class MedioBTest extends Testcase{
+class MedioBoletoTest extends Testcase{
   public function testDescontar(){
     $tarjeta = new MedioBoleto(100);
     $tarjeta->descontarSaldo();
