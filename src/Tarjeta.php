@@ -8,7 +8,7 @@ class Tarjeta{
   }
   
   public function descontarSaldo(){
-    if ($this->saldo - 120 >= 211.84){
+    if ($this->saldo - 120 >= -211.84){
       $this->saldo-=120;
       return true;
     } else {
