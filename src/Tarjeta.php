@@ -2,24 +2,17 @@
 namespace TrabajoSube;
 class Tarjeta{
   public $saldo;
-  public $viajePlus;
 
   public function __construct($saldo = 0){
     $this->saldo = $saldo;
-    $this->viajePlus = 2;
   }
   
   public function descontarSaldo(){
-    if ($this->saldo >= 120){
+    if ($this->saldo - 120 >= 211.84){
       $this->saldo-=120;
-      return true;
-    } else if ($this->saldo >= -91.84  && $this->viajePlus > 0){
-      $this->saldo-=120;
-      $this->viajePlus--;
-      echo "Le quedan " . $this->viajePlus . "viajes plus.";
       return true;
     } else {
-      echo "Se ha quedado sin viajes plus.";
+      echo "Se ha quedado sin viajes.";
       return false;
     }
   }
@@ -33,10 +26,6 @@ class Tarjeta{
       return false;
     } else if (in_array($carga, $cargaValida)){
       $this->saldo += $carga;
-      //Se reinician los viajes plus al quedar sin saldo negativo
-      if($this->saldo >= 0){
-        $this->viajePlus = 2;
-      }
       return true;
     } else {
       echo "No es posible acreditarle " . $carga . " pesos, intente una cantidad dentro del rango de cargas";
@@ -44,17 +33,3 @@ class Tarjeta{
     }
   }
 }
-
-class MedioBoleto extends Tarjeta{
-  public function descontarSaldo(){
-    $this->saldo-=60;
-  }
-  
-}
-
-class FranquiciaCompleta extends Tarjeta{
-  public function descontarSaldo(){
-    $this->saldo-=0;
-  }
-}
-

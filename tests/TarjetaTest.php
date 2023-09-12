@@ -23,6 +23,11 @@ class TarjetaTest extends Testcase{
     $tarjeta3 = new Tarjeta();
     $this->assertFalse($tarjeta3->cargarSaldo(245));
     $this->assertEquals($tarjeta3->saldo, 0);
+
+    //Test de carga con saldo negativo
+    $tarjeta4 = new Tarjeta(-211.84);
+    $tarjeta4->cargarSaldo(300);
+    $this->assertEquals($tarjeta4->saldo, 88.16);
   }
 
   public function testDescontar(){
@@ -33,35 +38,5 @@ class TarjetaTest extends Testcase{
     
     $tarjeta1 = new Tarjeta(-120);
     $this->assertFalse($tarjeta1->descontarSaldo());
-
-    //Test de viajes plus
-    $tarjeta1 = new Tarjeta(50);
-    $tarjeta1->descontarSaldo();
-    $tarjeta1->descontarSaldo();
-    $this->assertEquals($tarjeta1->viajePlus, 0);
-
-    //Test de carga con viajes plus
-    $tarjeta2 = new Tarjeta(-211.84);
-    $tarjeta2->cargarSaldo(300);
-    $this->assertEquals($tarjeta2->viajePlus, 2);
-    $this->assertEquals($tarjeta2->saldo, 88.16);
-  }
-}
-
-class MedioBTest extends Testcase{
-  public function testDescontar(){
-    //Test de descontar para medio boleto//
-    $tarjeta = new MedioBoleto(100);
-    $tarjeta->descontarSaldo();
-    $this->assertEquals($tarjeta->saldo, 40);
-  }
-}
-
-class FranqCompTest extends Testcase{
-  public function testDescontar(){
-    //Test de descontar para franquicia completa//
-    $tarjeta = new FranquiciaCompleta(100);
-    $tarjeta->descontarSaldo();
-    $this->assertEquals($tarjeta->saldo, 100);
   }
 }
