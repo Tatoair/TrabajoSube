@@ -31,7 +31,7 @@ class Boleto{
   }
 
   public function getTipo(){
-    return substr(get_class($this), 12);
+    return substr(get_class($this->tipoTarjeta), 12);
   }
 
   public function getAbonado(){

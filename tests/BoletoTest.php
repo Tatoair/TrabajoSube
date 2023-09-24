@@ -77,9 +77,9 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getDescripcion(), "Abona saldo 120");
 
     $boleto2 = $cole->pagarCon($tarjeta);
-    $this->assertEquals($boleto->getDescripcion(), "Abona saldo 120 (Se encuentra en negativo)");
+    $this->assertEquals($boleto2->getDescripcion(), "Abona saldo 120 (Se encuentra en negativo)");
 
     $boleto3 = $cole->pagarCon($tarjeta);
-    $this->assertEquals($boleto->getDescripcion(), "No tiene suficiente saldo");
+    $this->assertEquals($boleto3->getDescripcion(), "No tiene suficiente saldo");
   }
 }
