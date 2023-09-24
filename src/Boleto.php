@@ -49,10 +49,8 @@ class Boleto{
   public function setDescripcion(){
     if($this->saldoFinal >= 0){
       $this->descripcion = "Abona saldo " . $this->abonado;
-    } elseif ($this->saldoFinal >= -211.84){
-      $this->descripcion = "Abona saldo " . $this->abonado . " (Se encuentra en negativo)";
     } else {
-      $this->descripcion = "No tiene suficiente saldo";
+      $this->descripcion = "Abona saldo " . $this->abonado . " (Se encuentra en negativo)";
     }
   }
 }

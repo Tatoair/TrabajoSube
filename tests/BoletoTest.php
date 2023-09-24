@@ -22,6 +22,9 @@ class BoletoTest extends TestCase{
   }
 
   public function testGetID(){
+    $cole = new Colectivo(103);
+    $tarjeta = new Tarjeta(120);
+    $boleto = $cole->pagarCon($tarjeta);
     $this->assertNotNull($boleto->getID());
   }
 
@@ -78,8 +81,5 @@ class BoletoTest extends TestCase{
 
     $boleto2 = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto2->getDescripcion(), "Abona saldo 120 (Se encuentra en negativo)");
-
-    $boleto3 = $cole->pagarCon($tarjeta);
-    $this->assertEquals($boleto3->getDescripcion(), "No tiene suficiente saldo");
   }
 }
