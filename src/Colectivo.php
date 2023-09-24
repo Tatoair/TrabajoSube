@@ -14,7 +14,7 @@ class Colectivo{
   public function pagarCon($tarjeta){
     if($tarjeta->descontarSaldo()){
       $boleto = new Boleto($this->getLinea(), $tarjeta->getID(), get_class($tarjeta), $tarjeta->getTarifa(), $tarjeta->getSaldo());
-      $boleto->setDescription();
+      $boleto->setDescripcion();
       return $boleto;
     } else {
       return false;
