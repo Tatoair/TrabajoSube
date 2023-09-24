@@ -1,5 +1,4 @@
 <?php
-<?php
 namespace TrabajoSube;
 class Colectivo{
   protected $linea;
