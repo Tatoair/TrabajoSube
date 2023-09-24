@@ -3,7 +3,7 @@ namespace TrabajoSube;
 class Boleto{
   protected $fecha;
   protected $tipoTarjeta;
-  protected $lineaColectivo
+  protected $lineaColectivo;
   protected $abonado;
   protected $saldoFinal;
   protected $IDTarjeta;
