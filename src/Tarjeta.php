@@ -24,8 +24,8 @@ class Tarjeta{
   }
   
   public function descontarSaldo(){
-    if ($this->saldo - $tarifa >= -211.84){
-      $this->saldo-=$tarifa;
+    if ($this->saldo - $this->tarifa >= -211.84){
+      $this->saldo-=$this->tarifa;
       return true;
     } else {
       return false;
