@@ -1,18 +1,33 @@
 <?php
 namespace TrabajoSube;
 class Tarjeta{
-  public $saldo;
+  protected $ID;
+  protected $saldo;
+  protected $tarifa;
 
-  public function __construct($saldo = 0){
+  public function __construct($ID, $saldo = 0){
+    $this->ID = uniqid();
     $this->saldo = $saldo;
+    $this->tarifa = 120;
+  }
+
+  public function getID(){
+    return $this->ID;
+  }
+
+  public function getSaldo(){
+    return $this->saldo;
+  }
+
+  public function getTarifa(){
+    return $this->tarifa;
   }
   
   public function descontarSaldo(){
-    if ($this->saldo - 120 >= -211.84){
-      $this->saldo-=120;
+    if ($this->saldo - $tarifa >= -211.84){
+      $this->saldo-=$tarifa;
       return true;
     } else {
-      echo "Se ha quedado sin viajes.";
       return false;
     }
   }

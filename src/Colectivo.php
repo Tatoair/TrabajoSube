@@ -1,4 +1,5 @@
 <?php
+<?php
 namespace TrabajoSube;
 class Colectivo{
   protected $linea;
@@ -13,7 +14,9 @@ class Colectivo{
   
   public function pagarCon($tarjeta){
     if($tarjeta->descontarSaldo()){
-      return new Boleto(120, $tarjeta->saldo);
+      $boleto = new Boleto($this->getLinea(), $tarjeta->getID(), get_class($tarjeta), $tarjeta->getTarifa(), $tarjeta->getSaldo());
+      $boleto->setDescription();
+      return $boleto;
     } else {
       return false;
     }
