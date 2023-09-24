@@ -5,7 +5,7 @@ class Tarjeta{
   protected $saldo;
   protected $tarifa;
 
-  public function __construct($saldo = 0, $ID){
+  public function __construct($saldo = 0){
     $this->ID = uniqid();
     $this->saldo = $saldo;
     $this->tarifa = 120;
