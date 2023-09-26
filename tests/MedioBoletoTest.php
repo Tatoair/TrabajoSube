@@ -9,14 +9,11 @@ class MedioBoletoTest extends Testcase{
     $tarjeta = new MedioBoleto(100);
     $tarjeta->descontarSaldo();
     $this->assertEquals($tarjeta->getSaldo(), 40);
-  }
 
-  public function limitMedioBoleto(){
     //Test para probar que se verifique que pasen 5 minutos antes que se page el siguiente// 
     $tarjeta = new MedioBoleto(600);
     $tarjeta->descontarSaldo();
     $this->assertFalse($tarjeta->descontarSaldo());
-
 
     //Test para probar que cuenta con 4 medioboletos, y el quinto se cobra normal//
     $tarjeta1= new MedioBoleto(600);
@@ -38,6 +35,7 @@ class MedioBoletoTest extends Testcase{
 
     //Test para probar que al pasar el día vuelven sus 4 medio boletos//
     $this->setUltimoDia("tomorrow");
+    $this->assertEquals($tarjeta1->getCantViajes(), 4);
     //Viaje 6, Vuelve el medio boleto, saldo restante: 180//
     $tarjeta1->descontarSaldo();
     $this->assertTrue($tarjeta1->getSaldo(), 180);
