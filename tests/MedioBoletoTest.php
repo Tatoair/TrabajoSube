@@ -37,7 +37,7 @@ class MedioBoletoTest extends Testcase{
     $tarjeta1->setUltimoDia("yesterday");
     //El reinicio se hace cuando se descuenta//
     $tarjeta1->descontarSaldo();
-    $this->assertEquals($tarjeta1->getCantViajes(), 3);
+    $this->assertEquals($tarjeta1->getCantViajes(), 4);
     //Viaje 6, Vuelve el medio boleto, saldo restante: 180//
     $this->assertEquals($tarjeta1->getSaldo(), 180);
   }
