@@ -8,6 +8,6 @@ class MedioBoletoTest extends Testcase{
   public function testDescontar(){
     $tarjeta = new MedioBoleto(100);
     $tarjeta->descontarSaldo();
-    $this->assertEquals($tarjeta->saldo, 40);
+    $this->assertEquals($tarjeta->getSaldo(), 40);
   }
 }
