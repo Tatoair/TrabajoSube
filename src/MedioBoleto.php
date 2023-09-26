@@ -23,7 +23,7 @@ class MedioBoleto extends Tarjeta{
   }
 
   public function setUltimoDia($dia){
-    $this->ultimoDia = $dia;
+    $this->ultimoDia = strtotime($dia);
   }
 
   public function descontarSaldo(){
