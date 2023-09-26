@@ -35,9 +35,11 @@ class MedioBoletoTest extends Testcase{
 
     //Test para probar que al pasar el día vuelven sus 4 medio boletos//
     $tarjeta1->setUltimoDia("yesterday");
+    $tarjeta1->setUltimoViaje(time() - 25*60);
     //El reinicio se hace cuando se descuenta//
     $tarjeta1->descontarSaldo();
-    $this->assertEquals($tarjeta1->getCantViajes(), 4);
+    
+    $this->assertEquals($tarjeta1->getCantViajes(), 3);
     //Viaje 6, Vuelve el medio boleto, saldo restante: 180//
     $this->assertEquals($tarjeta1->getSaldo(), 180);
   }
