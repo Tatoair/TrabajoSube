@@ -46,7 +46,7 @@ class TarjetaTest extends Testcase{
     $tarjeta2->cargarSaldo(150);
     $tarjeta2->descontarSaldo();
     $this->assertEquals($tarjeta2->getSaldo(), 6600);
-    $this->assertEquals($tarjeta2->getSaldoPendiente(), 50);
+    $this->assertEquals($tarjeta2->getSaldoPendiente(), 30);
     $tarjeta2->descontarSaldo();
     $this->assertEquals($tarjeta2->getSaldo(), 6530);
     $this->assertEquals($tarjeta2->getSaldoPendiente(), 0);
