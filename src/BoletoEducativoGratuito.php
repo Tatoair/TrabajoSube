@@ -1,25 +1,15 @@
 <?php
 namespace TrabajoSube;
-class MedioBoleto extends Tarjeta{
-  protected $ultimoViaje;
+class BoletoEducativoGratuito extends Tarjeta{
   protected $ultimoDia;
   protected $cantViajes;
-
+  
   public function __construct($saldo = 0){
     $this->ID = uniqid();
     $this->saldo = $saldo;
-    $this->tarifa = 60;
-    $this->ultimoViaje = time()-5*60;
+    $this->tarifa = 0;
     $this->ultimoDia = strtotime("today");
-    $this->cantViajes = 4;
-  }
-
-  public function getCantViajes(){
-    return $this->cantViajes;
-  }
-
-  public function setUltimoViaje($tiempo){
-    $this->ultimoViaje = $tiempo;
+    $this->cantViajes = 2;
   }
 
   public function setUltimoDia($dia){
@@ -29,12 +19,12 @@ class MedioBoleto extends Tarjeta{
   public function descontarSaldo(){
     //Reinicia la cantidad de viajes medio boleto
     if (strtotime("today")-$this->ultimoDia > 0){
-      $this->cantViajes = 4;
-      $this->setTarifa(60);
+      $this->cantViajes = 2;
+      $this->setTarifa(0);
       $this->ultimoDia = strtotime("today");
     }
 
-    if ($this->saldo - $this->tarifa >= -211.84 && (time()-$this->ultimoViaje)/60 >= 5){
+    if ($this->saldo - $this->tarifa >= -211.84){
       if($this->cantViajes > 0){
         $this->saldo-=$this->tarifa;
         $this->cantViajes--;
@@ -42,10 +32,9 @@ class MedioBoleto extends Tarjeta{
         $this->setTarifa(120);
         $this->saldo-=$this->tarifa;
       }
-      $this->ultimoViaje = time();
       return true;
     } else {
       return false;
     }
-  }
+  } 
 }
