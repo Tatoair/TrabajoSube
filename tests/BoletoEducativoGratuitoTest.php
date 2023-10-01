@@ -4,7 +4,7 @@ namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
 
-class FranquiciaCompletaTest extends Testcase{
+class BoletoEducativoGratuitoTest extends Testcase{
   public function testDescontar(){
     //Test para probar que una tarjeta de boleto educativo gratuito no pueda hacer más de 2 gratis por día
     $tarjeta = new BoletoEducativoGratuito(200);
