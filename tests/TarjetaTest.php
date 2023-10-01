@@ -16,8 +16,9 @@ class TarjetaTest extends Testcase{
 
     //Test de carga excediendo el máximo
     $tarjeta2 = new Tarjeta(5000);
-    $this->assertFalse($tarjeta2->cargarSaldo(2000));
-    $this->assertEquals($tarjeta2->getSaldo(), 5000);
+    $this->assertTrue($tarjeta2->cargarSaldo(2000));
+    $this->assertEquals($tarjeta2->getSaldo(), 6600);
+    $this->assertEquals($tarjeta2->getSaldoPendiente(), 400);
 
     //Test de carga con monto no valido
     $tarjeta3 = new Tarjeta();
@@ -36,7 +37,18 @@ class TarjetaTest extends Testcase{
     $this->assertTrue($tarjeta->descontarSaldo());
     $this->assertEquals($tarjeta->getSaldo(), 80);
     
+    //Test descontar sin saldo
     $tarjeta1 = new Tarjeta(-120);
     $this->assertFalse($tarjeta1->descontarSaldo());
+    
+    //Test descontar con saldo pendiente
+    $tarjeta2 = new Tarjeta(6600);
+    $tarjeta2->cargarSaldo(150);
+    $tarjeta2->descontarSaldo();
+    $this->assertEquals($tarjeta2->getSaldo(), 6600);
+    $this->assertEquals($tarjeta2->getSaldoPendiente(), 50);
+    $tarjeta2->descontarSaldo();
+    $this->assertEquals($tarjeta2->getSaldo(), 6530);
+    $this->assertEquals($tarjeta2->getSaldoPendiente(), 0);
   }
 }
