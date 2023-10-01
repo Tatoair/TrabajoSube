@@ -22,6 +22,10 @@ class Tarjeta{
   public function getTarifa(){
     return $this->tarifa;
   }
+
+  public function setTarifa($tarifa){
+    $this->tarifa = $tarifa;
+  }
   
   public function descontarSaldo(){
     if ($this->saldo - $this->tarifa >= -211.84){
