@@ -1,6 +1,6 @@
 <?php
 namespace TrabajoSube;
-class Colectivo{
+class Interurbano extends Colectivo{
   protected $linea;
   protected $tarifa;
 
