@@ -57,7 +57,7 @@ class TarjetaTest extends Testcase{
     $tarjetaDescontable->descontarSaldo(120);
     $this->assertEquals($tarjetaDescontable->getSaldo(), 6294);
 
-    if($tarjetaDescontable->getUltimoMes() = 1){
+    if($tarjetaDescontable->getUltimoMes() == 1){
       $tarjetaDescontable->setUltimoMes(12);
     } else {
       $tarjetaDescontable->setUltimoMes($tarjetaDescontable->getUltimoMes()-1);
