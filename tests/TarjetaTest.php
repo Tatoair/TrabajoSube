@@ -61,5 +61,6 @@ class TarjetaTest extends Testcase{
   public function testGetViajes(){
     $tarjeta = new Tarjeta(100);
     $tarjeta->setViajes(10);
-    assertEquals($tarjeta->getViajes(), 10);
+    $this->assertEquals($tarjeta->getViajes(), 10);
+  }
 }
