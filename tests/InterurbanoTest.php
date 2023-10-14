@@ -4,7 +4,7 @@ namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
 
-class ColectivoTest extends TestCase{  
+class InterurbanoTest extends TestCase{  
   public function testGetlinea(){
     $cole = new Interurbano(103);
     $this->assertEquals($cole->getLinea(), 103);
