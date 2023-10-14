@@ -35,12 +35,12 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getTipo(), "Tarjeta");
 
     $MedioBoleto = new MedioBoleto(120);
-    $boleto2 = $cole->pagarCon($MedioBoleto);
-    $this->assertEquals($boleto2->getTipo(), "MedioBoleto");
+    $boletoMedio = $cole->pagarCon($MedioBoleto);
+    $this->assertEquals($boletoMedio->getTipo(), "MedioBoleto");
 
     $FranqComp = new FranquiciaCompleta(120);
-    $boleto3 = $cole->pagarCon($FranqComp);
-    $this->assertEquals($boleto3->getTipo(), "FranquiciaCompleta");
+    $boletoFranq = $cole->pagarCon($FranqComp);
+    $this->assertEquals($boletoFranq->getTipo(), "FranquiciaCompleta");
   }
 
   public function testGetAbonado(){
@@ -50,12 +50,12 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getAbonado(), 120);
     
     $MedioBoleto = new MedioBoleto(120);
-    $boleto2 = $cole->pagarCon($MedioBoleto);
-    $this->assertEquals($boleto2->getAbonado(), 60);
+    $boletoMedio = $cole->pagarCon($MedioBoleto);
+    $this->assertEquals($boletoMedio->getAbonado(), 60);
 
     $FranqComp = new FranquiciaCompleta(120);
-    $boleto3 = $cole->pagarCon($FranqComp);
-    $this->assertEquals($boleto3->getAbonado(), 0);
+    $boletoFranq = $cole->pagarCon($FranqComp);
+    $this->assertEquals($boletoFranq->getAbonado(), 0);
   }
 
   public function testGetSaldo(){
@@ -65,12 +65,12 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getSaldo(), 0);
 
     $MedioBoleto = new MedioBoleto(120);
-    $boleto2 = $cole->pagarCon($MedioBoleto);
-    $this->assertEquals($boleto2->getSaldo(), 60);
+    $boletoMedio = $cole->pagarCon($MedioBoleto);
+    $this->assertEquals($boletoMedio->getSaldo(), 60);
 
     $FranqComp = new FranquiciaCompleta(120);
-    $boleto3 = $cole->pagarCon($FranqComp);
-    $this->assertEquals($boleto3->getSaldo(), 120);
+    $boletoFranq = $cole->pagarCon($FranqComp);
+    $this->assertEquals($boletoFranq->getSaldo(), 120);
   }
 
   public function testGetDescripcion(){
@@ -79,7 +79,7 @@ class BoletoTest extends TestCase{
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto->getDescripcion(), "Abona saldo 120");
 
-    $boleto2 = $cole->pagarCon($tarjeta);
-    $this->assertEquals($boleto2->getDescripcion(), "Abona saldo 120 (Se encuentra en negativo)");
+    $boletoNegativo = $cole->pagarCon($tarjeta);
+    $this->assertEquals($boletoNegativo->getDescripcion(), "Abona saldo 120 (Se encuentra en negativo)");
   }
 }

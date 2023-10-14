@@ -5,12 +5,17 @@ class Tarjeta{
   protected $saldo;
   protected $saldoPendiente;
   protected $tarifa;
+  private $viajes;
+  private $descuentoFrecuente;
+  private $ultimoMes;
 
   public function __construct($saldo = 0){
     $this->ID = uniqid();
     $this->saldo = $saldo;
     $this->saldoPendiente = 0;
     $this->tarifa = 1;
+    $this->viajes = 0;
+    $this->ultimoMes = date("m");
   }
 
   public function getID(){
@@ -33,20 +38,42 @@ class Tarjeta{
     $this->tarifa = $tarifa;
   }
 
-  public function descontarSaldo($saldo){
-    if ($this->saldo - $saldo * $this->tarifa >= -211.84){
-      $this->saldo -= $saldo * $this->tarifa;
-      //Se acredita el saldo pendiente al saldo
-      if ($this->saldoPendiente > 0) {
-        $this->saldo += $this->saldoPendiente;
-        //Se evita sobrepasar el limite de 6600
-        if ($this->saldo > 6600) {
-          $this->saldoPendiente = $this->saldo-6600;
-          $this->saldo = 6600;
-        } else {
-          $this->saldoPendiente = 0;
-        }
+  public function setViajes($viajes){
+    $this->viajes = $viajes;
+  }
+
+  private function setDescuentoFrecuente($viajes){
+    if ($viajes < 30) {
+      $this->descuentoFrecuente = 1;
+    } else if ($viajes < 80) {
+      $this->descuentoFrecuente = 0.8;
+    } else {
+      $this->descuentoFrecuente = 0.75;
+    }
+  }
+
+  protected function acreditarSaldoPendiente(){
+    if ($this->saldoPendiente > 0) {
+      $this->saldo += $this->saldoPendiente;
+      if ($this->saldo > 6600) {
+        $this->saldoPendiente = $this->saldo-6600;
+        $this->saldo = 6600;
+      } else {
+        $this->saldoPendiente = 0;
       }
+    }
+  }
+  
+  public function descontarSaldo($saldo){
+    if(date("m") != $this->ultimoMes){
+      $this->viajes = 0;
+    }
+    if ($this->saldo - $saldo * $this->tarifa * $this->descuentoFrecuente >= -211.84){
+      $this->setDescuentoFrecuente($this->viajes);
+      $this->saldo - $saldo * $this->tarifa * $this->descuentoFrecuente;
+      $this->viajes++;
+      $this->ultimoMes = date("m");
+      $this->acreditarSaldoPendiente();
       return true;
     } else {
       return false;

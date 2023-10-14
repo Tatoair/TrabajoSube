@@ -41,6 +41,7 @@ class MedioBoleto extends Tarjeta{
         $this->setTarifa(1);
       }
       $this->saldo -= $saldo * $this->tarifa;
+      $this->acreditarSaldoPendiente();
       $this->ultimoViaje = time();
       return true;
     } else {
