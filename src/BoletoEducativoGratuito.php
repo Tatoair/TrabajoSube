@@ -1,6 +1,6 @@
 <?php
 namespace TrabajoSube;
-class BoletoEducativoGratuito extends Tarjeta{
+class BoletoEducativoGratuito extends FranquiciaCompleta {
   protected $ultimoDia;
   protected $cantViajes;
 
@@ -31,6 +31,7 @@ class BoletoEducativoGratuito extends Tarjeta{
         $this->setTarifa(1);
       }
       $this->saldo -= $saldo * $this->tarifa;
+      $this->acreditarSaldoPendiente();
       return true;
     } else {
       return false;

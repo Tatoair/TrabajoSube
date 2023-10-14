@@ -6,4 +6,9 @@ class FranquiciaCompleta extends Tarjeta{
     $this->saldo = $saldo;
     $this->tarifa = 0;
   }
+
+  public function descontarSaldo($saldo){
+    $this->saldo -= $saldo * $this->tarifa;
+    return true;
+  }
 }
