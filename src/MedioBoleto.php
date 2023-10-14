@@ -11,6 +11,7 @@ class MedioBoleto extends Tarjeta{
     $this->ultimoViaje = time()-5*60;
     $this->ultimoDia = strtotime("today");
     $this->cantViajes = 4;
+    $this->tarifa = 0.5;
   }
 
   public function getCantViajes(){
@@ -35,12 +36,11 @@ class MedioBoleto extends Tarjeta{
 
     if ($this->saldo - $saldo * $this->tarifa >= -211.84 && (time()-$this->ultimoViaje)/60 >= 5){
       if($this->cantViajes > 0){
-        $this->saldo -= $saldo * $this->tarifa;
         $this->cantViajes--;
       } else {
         $this->setTarifa(1);
-        $this->saldo-=$this->tarifa;
       }
+      $this->saldo -= $saldo * $this->tarifa;
       $this->ultimoViaje = time();
       return true;
     } else {

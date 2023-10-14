@@ -24,7 +24,7 @@ class FranquiciaCompletaTest extends Testcase{
 
       //Probamos que al día siguiente vuelvan los boletos gratuitos
       $tarjeta->setUltimoDia("yesterday");
-      $tarjeta->descontarSaldo();
+      $tarjeta->descontarSaldo(120);
       $this->assertEquals($tarjeta->getSaldo(),80);
     }
 }
