@@ -12,11 +12,11 @@ class FranquiciaCompletaTest extends Testcase{
 
       $tarjeta2ViajesGratis = new BoletoEducativoGratuito(200);
       $tarjeta2ViajesGratis->descontarSaldo(120);
-      $this->assertEquals($tarjeta->getSaldo(),200);
+      $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),200);
       $tarjeta2ViajesGratis->descontarSaldo(120);
-      $this->assertEquals($tarjeta->getSaldo(),200);
+      $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),200);
       $tarjeta2ViajesGratis->descontarSaldo(120);
-      $this->assertEquals($tarjeta->getSaldo(),80);
+      $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),80);
 
       //Probamos que al día siguiente vuelvan los boletos gratuitos
       $tarjeta2ViajesGratis->setUltimoDia("yesterday");
@@ -24,3 +24,4 @@ class FranquiciaCompletaTest extends Testcase{
       $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),80);
     }
 }
+
