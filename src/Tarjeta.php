@@ -4,6 +4,7 @@ class Tarjeta{
   protected $ID;
   protected $saldo;
   protected $saldoPendiente;
+  protected $tarifa;
 
   public function __construct($saldo = 0){
     $this->ID = uniqid();
@@ -33,7 +34,7 @@ class Tarjeta{
   }
 
   public function descontarSaldo($saldo){
-    if ($this->saldo - $this->tarifa >= -211.84){
+    if ($this->saldo - $saldo * $this->tarifa >= -211.84){
       $this->saldo -= $saldo * $this->tarifa;
       //Se acredita el saldo pendiente al saldo
       if ($this->saldoPendiente > 0) {

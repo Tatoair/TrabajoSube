@@ -9,13 +9,14 @@ class BoletoEducativoGratuito extends Tarjeta{
     $this->saldo = $saldo;
     $this->ultimoDia = strtotime("today");
     $this->cantViajes = 2;
+    $this->tarifa = 0;
   }
 
   public function setUltimoDia($dia){
     $this->ultimoDia = strtotime($dia);
   }
 
-  public function descontarSaldo(){
+  public function descontarSaldo($saldo){
     //Reinicia la cantidad de viajes medio boleto
     if (strtotime("today")-$this->ultimoDia > 0){
       $this->cantViajes = 2;
@@ -23,9 +24,9 @@ class BoletoEducativoGratuito extends Tarjeta{
       $this->ultimoDia = strtotime("today");
     }
 
-    if ($this->saldo - $this->tarifa >= -211.84){
+    if ($this->saldo - $saldo * $this->tarifa >= -211.84){
       if($this->cantViajes > 0){
-        $this->saldo-=$this->tarifa;
+        $this->saldo -= $saldo * $this->tarifa;
         $this->cantViajes--;
       } else {
         $this->setTarifa(1);

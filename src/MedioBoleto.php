@@ -33,7 +33,7 @@ class MedioBoleto extends Tarjeta{
       $this->ultimoDia = strtotime("today");
     }
 
-    if ($this->saldo - $this->tarifa >= -211.84 && (time()-$this->ultimoViaje)/60 >= 5){
+    if ($this->saldo - $saldo * $this->tarifa >= -211.84 && (time()-$this->ultimoViaje)/60 >= 5){
       if($this->cantViajes > 0){
         $this->saldo -= $saldo * $this->tarifa;
         $this->cantViajes--;
