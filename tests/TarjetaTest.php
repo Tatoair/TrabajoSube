@@ -56,6 +56,14 @@ class TarjetaTest extends Testcase{
     $tarjetaDescontable->setViajes(80);
     $tarjetaDescontable->descontarSaldo(120);
     $this->assertEquals($tarjetaDescontable->getSaldo(), 6294);
+
+    if($tarjetaDescontable->getUltimoMes() = 1){
+      $tarjetaDescontable->setUltimoMes(12);
+    } else {
+      $tarjetaDescontable->setUltimoMes($tarjetaDescontable->getUltimoMes()-1);
+    }
+    $tarjetaDescontable->descontarSaldo(120);
+    $this->assertEquals($tarjetaDescontable->getViajes(),1);
   }
 
   public function testGetViajes(){

@@ -38,12 +38,20 @@ class Tarjeta{
     return $this->viajes;
   }
 
+  public function getUltimoMes(){
+    return $this->ultimoMes;
+  }
+
   public function setTarifa($tarifa){
     $this->tarifa = $tarifa;
   }
 
   public function setViajes($viajes){
     $this->viajes = $viajes;
+  }
+
+  public function setUltimoMes($mes){
+    $this->ultimoMes = $mes;
   }
 
   private function setDescuentoFrecuente($viajes){
@@ -102,3 +110,4 @@ class Tarjeta{
     }
   }
 }
+
