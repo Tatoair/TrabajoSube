@@ -13,7 +13,7 @@ class MedioBoletoTest extends Testcase{
     //Test para probar que se verifique que pasen 5 minutos antes que se page el siguiente// 
     $tarjeta = new MedioBoleto(600);
     $tarjeta->descontarSaldo(120);
-    $this->assertFalse($tarjeta->descontarSaldo());
+    $this->assertFalse($tarjeta->descontarSaldo(120));
 
     //Test para probar que cuenta con 4 medioboletos, y el quinto se cobra normal//
     $tarjeta1= new MedioBoleto(600);
