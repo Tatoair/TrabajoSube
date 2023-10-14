@@ -3,14 +3,13 @@ namespace TrabajoSube;
 class Tarjeta{
   protected $ID;
   protected $saldo;
-  protected $tarifa;
   protected $saldoPendiente;
 
   public function __construct($saldo = 0){
     $this->ID = uniqid();
     $this->saldo = $saldo;
-    $this->tarifa = 120;
     $this->saldoPendiente = 0;
+    $this->tarifa = 1;
   }
 
   public function getID(){
@@ -32,10 +31,10 @@ class Tarjeta{
   public function setTarifa($tarifa){
     $this->tarifa = $tarifa;
   }
-  
-  public function descontarSaldo(){
+
+  public function descontarSaldo($saldo){
     if ($this->saldo - $this->tarifa >= -211.84){
-      $this->saldo-=$this->tarifa;
+      $this->saldo -= $saldo * $this->tarifa;
       //Se acredita el saldo pendiente al saldo
       if ($this->saldoPendiente > 0) {
         $this->saldo += $this->saldoPendiente;
@@ -52,7 +51,7 @@ class Tarjeta{
       return false;
     }
   }
-  
+
   public function cargarSaldo($carga){
     $cargaValida = [150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 2000, 2500, 3000, 3500, 4000];
 

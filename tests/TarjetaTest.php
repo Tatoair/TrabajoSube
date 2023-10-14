@@ -34,20 +34,20 @@ class TarjetaTest extends Testcase{
   public function testDescontar(){
     //Test de descontar simple
     $tarjeta = new Tarjeta(200);
-    $this->assertTrue($tarjeta->descontarSaldo());
+    $this->assertTrue($tarjeta->descontarSaldo(120));
     $this->assertEquals($tarjeta->getSaldo(), 80);
-    
+
     //Test descontar sin saldo
     $tarjeta1 = new Tarjeta(-120);
-    $this->assertFalse($tarjeta1->descontarSaldo());
-    
+    $this->assertFalse($tarjeta1->descontarSaldo(120));
+
     //Test descontar con saldo pendiente
     $tarjeta2 = new Tarjeta(6600);
     $tarjeta2->cargarSaldo(150);
-    $tarjeta2->descontarSaldo();
+    $tarjeta2->descontarSaldo(120);
     $this->assertEquals($tarjeta2->getSaldo(), 6600);
     $this->assertEquals($tarjeta2->getSaldoPendiente(), 30);
-    $tarjeta2->descontarSaldo();
+    $tarjeta2->descontarSaldo(120);
     $this->assertEquals($tarjeta2->getSaldo(), 6510);
     $this->assertEquals($tarjeta2->getSaldoPendiente(), 0);
   }

@@ -18,16 +18,16 @@ class MedioBoletoTest extends Testcase{
     //Test para probar que cuenta con 4 medioboletos, y el quinto se cobra normal//
     $tarjeta1= new MedioBoleto(600);
     //Viaje 1 , saldo restante: 540
-    $tarjeta1->descontarSaldo();
+    $tarjeta1->descontarSaldo(120);
     $tarjeta1->setUltimoViaje(time() - 5*60);
     //Viaje 2, saldo restante: 480
-    $tarjeta1->descontarSaldo();
+    $tarjeta1->descontarSaldo(120);
     $tarjeta1->setUltimoViaje(time() - 10*60);
     //Viaje 3, saldo restante: 420
-    $tarjeta1->descontarSaldo();
+    $tarjeta1->descontarSaldo(120);
     $tarjeta1->setUltimoViaje(time() - 15*60);
     //Viaje 4, saldo restante:360
-    $tarjeta1->descontarSaldo();
+    $tarjeta1->descontarSaldo(120);
     $tarjeta1->setUltimoViaje(time() - 20*60);
     //Viaje 5, NO mas MEDIO BOLETO por el resto del día, saldo restante: 240//
     $tarjeta1->descontarSaldo();
@@ -37,7 +37,7 @@ class MedioBoletoTest extends Testcase{
     $tarjeta1->setUltimoDia("yesterday");
     $tarjeta1->setUltimoViaje(time() - 25*60);
     //El reinicio se hace cuando se descuenta//
-    $tarjeta1->descontarSaldo();
+    $tarjeta1->descontarSaldo(120);
     
     $this->assertEquals($tarjeta1->getCantViajes(), 3);
     //Viaje 6, Vuelve el medio boleto, saldo restante: 180//

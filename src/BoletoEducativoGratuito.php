@@ -3,11 +3,10 @@ namespace TrabajoSube;
 class BoletoEducativoGratuito extends Tarjeta{
   protected $ultimoDia;
   protected $cantViajes;
-  
+
   public function __construct($saldo = 0){
     $this->ID = uniqid();
     $this->saldo = $saldo;
-    $this->tarifa = 0;
     $this->ultimoDia = strtotime("today");
     $this->cantViajes = 2;
   }
@@ -29,7 +28,7 @@ class BoletoEducativoGratuito extends Tarjeta{
         $this->saldo-=$this->tarifa;
         $this->cantViajes--;
       } else {
-        $this->setTarifa(120);
+        $this->setTarifa(1);
         $this->saldo-=$this->tarifa;
       }
       return true;

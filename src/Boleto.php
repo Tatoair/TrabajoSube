@@ -17,7 +17,7 @@ class Boleto{
     $this->abonado = $abonado;
     $this->saldoFinal = $saldoFinal;
   }
-  
+
   public function getFecha(){
     return $this->fecha;
   }
