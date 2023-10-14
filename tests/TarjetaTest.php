@@ -49,11 +49,11 @@ class TarjetaTest extends Testcase{
     $tarjetaDescontable->descontarSaldo(120);
     $this->assertEquals($tarjetaDescontable->getSaldo(), 6480);
     //Descuento 20%//
-    $tarjetaDescontable->setViaje(30);
+    $tarjetaDescontable->setViajes(30);
     $tarjetaDescontable->descontarSaldo(120);
     $this->assertEquals($tarjetaDescontable->getSaldo(), 6384);
     //Descuento 25%//
-    $tarjetaDescontable->setViaje(80);
+    $tarjetaDescontable->setViajes(80);
     $tarjetaDescontable->descontarSaldo(120);
     $this->assertEquals($tarjetaDescontable->getSaldo(), 6294);
     
