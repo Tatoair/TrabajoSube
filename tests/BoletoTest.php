@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class BoletoTest extends TestCase{
 
   public function testGetFecha(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $fecha = date("d/m/Y H:i:s");
@@ -15,21 +15,21 @@ class BoletoTest extends TestCase{
   }
 
   public function testGetLinea(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto->getLinea(), 103);
   }
 
   public function testGetID(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertNotNull($boleto->getID());
   }
 
   public function testGetTipo(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto->getTipo(), "Tarjeta");
@@ -44,7 +44,7 @@ class BoletoTest extends TestCase{
   }
 
   public function testGetAbonado(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto->getAbonado(), 120);
@@ -59,7 +59,7 @@ class BoletoTest extends TestCase{
   }
 
   public function testGetSaldo(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto->getSaldo(), 0);
@@ -74,7 +74,7 @@ class BoletoTest extends TestCase{
   }
 
   public function testGetDescripcion(){
-    $cole = new Colectivo(103, 120);
+    $cole = new Colectivo(103);
     $tarjeta = new Tarjeta(120);
     $boleto = $cole->pagarCon($tarjeta);
     $this->assertEquals($boleto->getDescripcion(), "Abona saldo 120");
