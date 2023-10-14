@@ -34,6 +34,10 @@ class Tarjeta{
     return $this->saldoPendiente;
   }
 
+  public function getViajes(){
+    return $this->viajes;
+  }
+
   public function setTarifa($tarifa){
     $this->tarifa = $tarifa;
   }

@@ -56,8 +56,10 @@ class TarjetaTest extends Testcase{
     $tarjetaDescontable->setViajes(80);
     $tarjetaDescontable->descontarSaldo(120);
     $this->assertEquals($tarjetaDescontable->getSaldo(), 6294);
-    
   }
 
-  
+  public function testGetViajes(){
+    $tarjeta = new Tarjeta(100);
+    $tarjeta->setViajes(10);
+    assertEquals($tarjeta->getViajes(), 10);
 }
