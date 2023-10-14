@@ -70,7 +70,7 @@ class Tarjeta{
     }
     $this->setDescuentoFrecuente($this->viajes);
     if ($this->saldo - $saldo * $this->tarifa * $this->descuentoFrecuente >= -211.84){
-      $this->saldo - $saldo * $this->tarifa * $this->descuentoFrecuente;
+      $this->saldo -= $saldo * $this->tarifa * $this->descuentoFrecuente;
       $this->viajes++;
       $this->ultimoMes = date("m");
       $this->acreditarSaldoPendiente();
