@@ -14,17 +14,17 @@ class FranquiciaCompletaTest extends Testcase{
       $tarjeta = new BoletoEducativoGratuito(200);
       //Se descuenta una vez, paga 0
       $tarjeta->descontarSaldo(120);
-      $this->assertEquals($tarjeta->saldo,200);
+      $this->assertEquals($tarjeta->getSaldo(),200);
       //Se descuenta otra vez, paga 0
       $tarjeta->descontarSaldo(120);
-      $this->assertEquals($tarjeta->saldo,200);
+      $this->assertEquals($tarjeta->getSaldo(),200);
       //Se descuenta una vez más, paga 120
       $tarjeta->descontarSaldo(120);
-      $this->assertEquals($tarjeta->saldo,80);
+      $this->assertEquals($tarjeta->getSaldo(),80);
 
       //Probamos que al día siguiente vuelvan los boletos gratuitos
       $tarjeta->setUltimoDia("yesterday");
       $tarjeta->descontarSaldo();
-      $this->assertEquals($tarjeta->saldo,80);
+      $this->assertEquals($tarjeta->getSaldo(),80);
     }
 }
