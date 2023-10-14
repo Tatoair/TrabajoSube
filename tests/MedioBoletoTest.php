@@ -7,12 +7,12 @@ use PHPUnit\Framework\TestCase;
 class MedioBoletoTest extends Testcase{
   public function testDescontar(){
     $tarjeta = new MedioBoleto(100);
-    $tarjeta->descontarSaldo();
+    $tarjeta->descontarSaldo(120);
     $this->assertEquals($tarjeta->getSaldo(), 40);
 
     //Test para probar que se verifique que pasen 5 minutos antes que se page el siguiente// 
     $tarjeta = new MedioBoleto(600);
-    $tarjeta->descontarSaldo();
+    $tarjeta->descontarSaldo(120);
     $this->assertFalse($tarjeta->descontarSaldo());
 
     //Test para probar que cuenta con 4 medioboletos, y el quinto se cobra normal//

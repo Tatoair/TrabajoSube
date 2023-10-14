@@ -26,12 +26,11 @@ class BoletoEducativoGratuito extends Tarjeta{
 
     if ($this->saldo - $saldo * $this->tarifa >= -211.84){
       if($this->cantViajes > 0){
-        $this->saldo -= $saldo * $this->tarifa;
         $this->cantViajes--;
       } else {
         $this->setTarifa(1);
-        $this->saldo-=$this->tarifa;
       }
+      $this->saldo -= $saldo * $this->tarifa;
       return true;
     } else {
       return false;

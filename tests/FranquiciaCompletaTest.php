@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class FranquiciaCompletaTest extends Testcase{
     public function testDescontar(){
       $tarjeta = new FranquiciaCompleta(100);
-      $tarjeta->descontarSaldo();
+      $tarjeta->descontarSaldo(120);
       $this->assertEquals($tarjeta->getSaldo(), 100);
 
       //Test para probar que una tarjeta de boleto educativo gratuito no pueda hacer más de 2 gratis por día
