@@ -4,17 +4,17 @@ namespace TrabajoSube;
 
 use PHPUnit\Framework\TestCase;
 
-class ColectivoTest extends TestCase{  
+class InterurbanoTest extends TestCase{  
   public function testGetlinea(){
-    $cole = new Colectivo(103);
+    $cole = new Interurbano(103);
     $this->assertEquals($cole->getLinea(), 103);
   }
-  
+
   public function testPagar(){
     $tarjeta = new Tarjeta(380);
-    $colectivo = new Colectivo(103);
+    $colectivo = new Interurbano(103);
     $boleto = $colectivo->pagarCon($tarjeta);
-    $this->assertEquals($boleto->getSaldo(), 260);
+    $this->assertEquals($boleto->getSaldo(), 196);
 
     $tarjeta1 = new Tarjeta(-200);
     $this->assertFalse($colectivo->pagarCon($tarjeta1));
