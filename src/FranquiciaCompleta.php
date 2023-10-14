@@ -8,12 +8,7 @@ class FranquiciaCompleta extends Tarjeta{
   }
 
   public function descontarSaldo($saldo){
-    if ($this->saldo - $saldo * $this->tarifa >= -211.84){
-      $this->saldo -= $saldo * $this->tarifa;
-      $this->acreditarSaldoPendiente();
-      return true;
-    } else {
-      return false;
-    }
+    $this->saldo -= $saldo * $this->tarifa;
+    return true;
   }
 }
