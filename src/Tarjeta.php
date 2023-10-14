@@ -68,8 +68,8 @@ class Tarjeta{
     if(date("m") != $this->ultimoMes){
       $this->viajes = 0;
     }
+    $this->setDescuentoFrecuente($this->viajes);
     if ($this->saldo - $saldo * $this->tarifa * $this->descuentoFrecuente >= -211.84){
-      $this->setDescuentoFrecuente($this->viajes);
       $this->saldo - $saldo * $this->tarifa * $this->descuentoFrecuente;
       $this->viajes++;
       $this->ultimoMes = date("m");

@@ -6,18 +6,23 @@ use PHPUnit\Framework\TestCase;
 
 class BoletoEducativoGratuitoTest extends Testcase{
   public function testDescontar(){
-    $tarjeta2ViajesGratis = new BoletoEducativoGratuito(-80);
-    $tarjeta2ViajesGratis->descontarSaldo(120);
-    $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),-80);
-    $tarjeta2ViajesGratis->descontarSaldo(120);
-    $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),-80);
-    $tarjeta2ViajesGratis->descontarSaldo(120);
-    $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),-200);
-    $this->assertFalse($tarjeta2ViajesGratis->descontarSaldo(120));
+    //Test para probar que una tarjeta de boleto educativo gratuito no pueda hacer más de 2 gratis por día
+    $tarjeta = new BoletoEducativoGratuito(-80);
+    //Se descuenta una vez, paga 0
+    $tarjeta->descontarSaldo(120);
+    $this->assertEquals($tarjeta->getSaldo(),-80);
+    //Se descuenta otra vez, paga 0
+    $tarjeta->descontarSaldo(120);
+    $this->assertEquals($tarjeta->getSaldo(),-80);
+    //Se descuenta una vez más, paga 120
+    $tarjeta->descontarSaldo(120);
+    $this->assertEquals($tarjeta->getSaldo(),-200);
+    //No puede pagar nuevamente al no tener saldo
+    $this->assertFalse($tarjeta->descontarSaldo(120));
 
     //Probamos que al día siguiente vuelvan los boletos gratuitos
-    $tarjeta2ViajesGratis->setUltimoDia("yesterday");
-    $tarjeta2ViajesGratis->descontarSaldo(120);
-    $this->assertEquals($tarjeta2ViajesGratis->getSaldo(),-200);
+    $tarjeta->setUltimoDia("yesterday");
+    $tarjeta->descontarSaldo(120);
+    $this->assertEquals($tarjeta->getSaldo(),-200);
   }
 }
