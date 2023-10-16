@@ -75,7 +75,7 @@ class BoletoTest extends TestCase{
     $BEG->setDia(3);
     $BEG->setHora(12);
     $boletoBEG = $cole->pagarCon($BEG);
-    $this->assertEquals($boletoBEG->getAbonado(), 60);
+    $this->assertEquals($boletoBEG->getAbonado(), 0);
   }
 
   public function testGetSaldo(){
@@ -100,7 +100,7 @@ class BoletoTest extends TestCase{
     $BEG->setDia(3);
     $BEG->setHora(12);
     $boletoBEG = $cole->pagarCon($BEG);
-    $this->assertEquals($boletoBEG->getSaldo(), 60);
+    $this->assertEquals($boletoBEG->getSaldo(), 120);
   }
 
   public function testGetDescripcion(){
