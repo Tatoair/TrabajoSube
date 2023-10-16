@@ -70,6 +70,12 @@ class BoletoTest extends TestCase{
     $FranqComp->setHora(12);
     $boletoFranq = $cole->pagarCon($FranqComp);
     $this->assertEquals($boletoFranq->getAbonado(), 0);
+
+    $BEG = new BoletoEducativoGratuito(120);
+    $BEG->setDia(3);
+    $BEG->setHora(12);
+    $boletoBEG = $cole->pagarCon($BEG);
+    $this->assertEquals($boletoBEG->getAbonado(), 60);
   }
 
   public function testGetSaldo(){
@@ -89,6 +95,12 @@ class BoletoTest extends TestCase{
     $FranqComp->setHora(12);
     $boletoFranq = $cole->pagarCon($FranqComp);
     $this->assertEquals($boletoFranq->getSaldo(), 120);
+
+    $BEG = new BoletoEducativoGratuito(120);
+    $BEG->setDia(3);
+    $BEG->setHora(12);
+    $boletoBEG = $cole->pagarCon($BEG);
+    $this->assertEquals($boletoBEG->getSaldo(), 60);
   }
 
   public function testGetDescripcion(){
