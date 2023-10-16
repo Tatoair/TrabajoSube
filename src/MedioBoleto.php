@@ -35,17 +35,18 @@ class MedioBoleto extends Tarjeta{
     }
 
     if ($this->saldo - $saldo * $this->tarifa >= -211.84 && (time()-$this->ultimoViaje)/60 >= 5){
-      if($this->cantViajes > 0){
-        $this->cantViajes--;
-      } else {
-        $this->setTarifa(1);
+      if($this->dia > 0 && $this->dia < 6 && $this->hora >= 6 && $this->hora <= 22){
+        if($this->cantViajes > 0){
+          $this->cantViajes--;
+        } else {
+          $this->setTarifa(1);
+        }
+        $this->saldo -= $saldo * $this->tarifa;
+        $this->acreditarSaldoPendiente();
+        $this->ultimoViaje = time();
+        return true;
       }
-      $this->saldo -= $saldo * $this->tarifa;
-      $this->acreditarSaldoPendiente();
-      $this->ultimoViaje = time();
-      return true;
-    } else {
-      return false;
     }
+    return false;
   }
 }
