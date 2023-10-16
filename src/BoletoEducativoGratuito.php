@@ -3,6 +3,8 @@ namespace TrabajoSube;
 class BoletoEducativoGratuito extends FranquiciaCompleta {
   protected $ultimoDia;
   protected $cantViajes;
+  protected $dia;
+  protected $hora;
 
   public function __construct($saldo = 0){
     $this->ID = uniqid();
@@ -16,6 +18,14 @@ class BoletoEducativoGratuito extends FranquiciaCompleta {
 
   public function setUltimoDia($dia){
     $this->ultimoDia = strtotime($dia);
+  }
+
+  public function setDia($dia){
+    $this->dia = $dia;
+  }
+
+  public function setHora($hora){
+    $this->hora = $hora;
   }
 
   public function descontarSaldo($saldo){

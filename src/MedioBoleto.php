@@ -4,6 +4,8 @@ class MedioBoleto extends Tarjeta{
   protected $ultimoViaje;
   protected $ultimoDia;
   protected $cantViajes;
+  protected $dia;
+  protected $hora;
 
   public function __construct($saldo = 0){
     $this->ID = uniqid();
@@ -12,6 +14,8 @@ class MedioBoleto extends Tarjeta{
     $this->ultimoDia = strtotime("today");
     $this->cantViajes = 4;
     $this->tarifa = 0.5;
+    $this->dia = date("w");
+    $this->hora = date("G");
   }
 
   public function getCantViajes(){
@@ -24,6 +28,14 @@ class MedioBoleto extends Tarjeta{
 
   public function setUltimoDia($dia){
     $this->ultimoDia = strtotime($dia);
+  }
+
+  public function setDia($dia){
+    $this->dia = $dia;
+  }
+
+  public function setHora($hora){
+    $this->hora = $hora;
   }
 
   public function descontarSaldo($saldo){

@@ -3,6 +3,7 @@ namespace TrabajoSube;
 class FranquiciaCompleta extends Tarjeta{
   protected $dia;
   protected $hora;
+  
   public function __construct($saldo = 0){
     $this->ID = uniqid();
     $this->saldo = $saldo;
