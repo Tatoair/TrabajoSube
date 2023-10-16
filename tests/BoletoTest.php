@@ -35,12 +35,22 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getTipo(), "Tarjeta");
 
     $MedioBoleto = new MedioBoleto(120);
+    $MedioBoleto->setDia(3);
+    $MedioBoleto->setHora(12);
     $boletoMedio = $cole->pagarCon($MedioBoleto);
     $this->assertEquals($boletoMedio->getTipo(), "MedioBoleto");
 
     $FranqComp = new FranquiciaCompleta(120);
+    $FranqComp->setDia(3);
+    $FranqComp->setHora(12);
     $boletoFranq = $cole->pagarCon($FranqComp);
     $this->assertEquals($boletoFranq->getTipo(), "FranquiciaCompleta");
+
+    $BEG = new BoletoEducativoGratuito(120);
+    $BEG->setDia(3);
+    $BEG->setHora(12);
+    $boletoBEG = $cole->pagarCon($BEG);
+    $this->assertEquals($boletoBEG->getTipo(), "BoletoEducativoGratuito");
   }
 
   public function testGetAbonado(){
@@ -50,10 +60,14 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getAbonado(), 120);
     
     $MedioBoleto = new MedioBoleto(120);
+    $MedioBoleto->setDia(3);
+    $MedioBoleto->setHora(12);
     $boletoMedio = $cole->pagarCon($MedioBoleto);
     $this->assertEquals($boletoMedio->getAbonado(), 60);
 
     $FranqComp = new FranquiciaCompleta(120);
+    $FranqComp->setDia(3);
+    $FranqComp->setHora(12);
     $boletoFranq = $cole->pagarCon($FranqComp);
     $this->assertEquals($boletoFranq->getAbonado(), 0);
   }
@@ -65,10 +79,14 @@ class BoletoTest extends TestCase{
     $this->assertEquals($boleto->getSaldo(), 0);
 
     $MedioBoleto = new MedioBoleto(120);
+    $MedioBoleto->setDia(3);
+    $MedioBoleto->setHora(12);
     $boletoMedio = $cole->pagarCon($MedioBoleto);
     $this->assertEquals($boletoMedio->getSaldo(), 60);
 
     $FranqComp = new FranquiciaCompleta(120);
+    $FranqComp->setDia(3);
+    $FranqComp->setHora(12);
     $boletoFranq = $cole->pagarCon($FranqComp);
     $this->assertEquals($boletoFranq->getSaldo(), 120);
   }
